@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Grid } from "semantic-ui-react";
+import UsersListContainer from "./containers/UsersListContainer";
+import SearchBarContainer from "./containers/SearchBarContainer";
+import AlertContainer from "./containers/AlertContainer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid centered columns={3}>
+      <Grid.Column>
+        <SearchBarContainer/>
+      </Grid.Column>
+      <Grid.Row centered columns={2}>
+        <Grid.Column>
+          <UsersListContainer />
+        </Grid.Column>
+      </Grid.Row>
+      <AlertContainer/>
+    </Grid>
   );
 }
 

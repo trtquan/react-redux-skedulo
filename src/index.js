@@ -1,14 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import thunkMiddleware from "redux-thunk";
+import rootReducer from './redux/reducers';
+import logger from 'redux-logger';
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "semantic-ui-css/semantic.min.css";
 
+const enhancer = applyMiddleware(thunkMiddleware, logger);
+let store = createStore(rootReducer, enhancer);
+console.log(store.getState());
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider store={store}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </Provider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

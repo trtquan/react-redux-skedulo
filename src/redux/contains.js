@@ -1,3 +1,5 @@
 export const SET_USERS = 'SET_USERS'
 export const SHOW_ALERT = 'SHOW_ALERT'
 export const SHOW_LOADING = 'SHOW_LOADING'
+export const GET_USERS = 'GET_USERS'
+export const PERSIST_USER = 'PERSIST_USER'

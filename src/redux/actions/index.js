@@ -4,6 +4,12 @@ import {
   SHOW_LOADING
 } from "../contains";
 import {searchUsers} from "../../services/api"
+import { setupCache } from 'axios-cache-adapter'
+
+// Create `axios-cache-adapter` instance
+const cache = setupCache({
+  maxAge: 15 * 60 * 1000
+})
 
 export const showAlert = () => {
   return {
@@ -49,7 +55,12 @@ export const getListOfUsers = (value) => {
       dispatch(showLoading(true))
       const paramSearch = {q: value, per_page: 100}
       return searchUsers(paramSearch)
-        .then((response) => response.data)
+        .then(async response => {
+          const length = await cache.store.length()
+
+          console.log('Cache store length:', length)
+          return response.data
+        })
         .then((data) => {
           dispatch(filterListOfUsers(data, value));
           dispatch(showLoading(false))

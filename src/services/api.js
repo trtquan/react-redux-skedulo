@@ -1,12 +1,5 @@
 import axios from "axios";
-const URL = "https://api.github.com";
-const config = {
-  urls: {
-    search: {
-      users: `${URL}/search/users`,
-    },
-  },
-};
+import config from '../config'
 
 const newRequest = (method, url, queryParams, data) =>
   axios.request({

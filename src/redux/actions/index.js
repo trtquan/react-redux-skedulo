@@ -3,7 +3,6 @@ import {
   SHOW_ALERT,
   SHOW_LOADING
 } from "../contains";
-import axios from "axios";
 import {searchUsers} from "../../services/api"
 
 export const showAlert = () => {

@@ -12,12 +12,12 @@ const UsersList = ({ users, showLoading }) => {
   const TableRow = users.map((el, index) => {
     return (
       <Table.Row key={index}>
-        <Table.Cell>
+        <Table.Cell textAlign='center'>
           <Image src={el.avtURL} rounded size="mini" />
         </Table.Cell>
-        <Table.Cell>{el.login}</Table.Cell>
-        <Table.Cell>{el.type}</Table.Cell>
-        <Table.Cell>{el.score}</Table.Cell>
+        <Table.Cell textAlign='center'>{el.login}</Table.Cell>
+        <Table.Cell textAlign='center'>{el.type}</Table.Cell>
+        <Table.Cell textAlign='center'>{el.score}</Table.Cell>
       </Table.Row>
     );
   });
